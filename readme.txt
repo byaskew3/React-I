@@ -28,5 +28,3 @@ NOTE: We can destructure here to make our code more optimized
 5. Add App title "Thieves Pokemon Finder"
 
 ** APP COMPLETE (In a class component way) **
-
-6. Lets convert our app utilizing functional components
