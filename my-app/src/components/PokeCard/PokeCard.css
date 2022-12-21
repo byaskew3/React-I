@@ -1,0 +1,67 @@
+.card-list {
+    width: 60vw;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+  }
+  
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    background: #ada996; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to top,
+      rgba(234, 234, 234, 0.4),
+      rgba(219, 219, 219, 0.4),
+      rgba(242, 242, 242, 0.4),
+      rgba(173, 169, 150, 0.4)
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to top,
+      rgba(234, 234, 234, 0.4),
+      rgba(219, 219, 219, 0.4),
+      rgba(242, 242, 242, 0.4),
+      rgba(173, 169, 150, 0.4)
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+    border: 2px solid rgb(173, 173, 173);
+    color: white;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    padding: 25px;
+    cursor: pointer;
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: transform 0.25s ease-out;
+  }
+  
+  .card-container:hover {
+    transform: scale(1.05);
+  }
+  
+  @media (max-width: 600px) {
+    .card-list {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (min-width: 600px) {
+    .card-list {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (min-width: 1450px) {
+    .card-list {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  @media (min-width: 2000px) {
+    .card-list {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+  
