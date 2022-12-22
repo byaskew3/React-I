@@ -1,58 +1,44 @@
-1. Lifecycle Method: componentDidMount
--- delete hard-coded state data (pokemon: [])
--- implement componentDidMount(){}
-NOTE: Mounting is the first time React renders a component to the page,
-It only happens once throughout a components life. If you need to make an API request
-so your component can have the appropriate data it needs in order to render the correct things,
-put your request in componentDidMount.
+1. Class Component Lifecycle Methods Breakdown (Diagram)
 
--- make async/await api request to pokemon api
--- setState({pokemon: data['results']})
+2. Functional Component Intro
+-- Create App Functional Component
+NOTE: Functional Components do not have a constructor, any lifecycle methods, or a render.
+Its a function that only returns your UI (JSX).
+-- Copy and paste our JSX from our Class Component to our Functional Component.
+-- Thats it, lets verify the component
 
-2. Renders & Re-renders
---------- Rendering Order of a Component Lifecycle -------------
---(constructor())
-  (initialize the state)
+3. Hooks: useState
+-- Copy and paste our onSearchChange Method from our class to our function
+-- this.setState is unique to our class
+-- Import { useState } hook
+-- Use Array Destructuring to useState()
+-- Delete this.setState & implement setSearchString(search_field_string)
+-- Uncomment our SearchBox component
+-- console.log the useState flow
 
---(render())
-  (render your initial component UI)
+4. Functional Component Re-rendering
+-- console.log('render') at the top of our functional component
+-- When props(Functional Arguments) or the state value changes, a re-render occurs.
+NOTE: If the state value is the same as the setState value, a re-render does NOT occur.
 
---(componentDidMount())
-  (make API requests)
+5. Infinite Re-rendering
+-- Lets migrate the rest of our unused code. (PokeCard Component, Filtered Pokemon, Fetch Request)
+-- Initialize new state for our pokemon array
+-- Adjust our fetch request (incoming infinite loop)
+NOTE: Infinite loop occurs bc when fetching to a third party API, it is storing our response
+to a new location in memory, which then updates our setPokemon state, which triggers the re-render of our entire function.
 
---(Re-render occurs when setState updates your initial state)
+6. Hooks: useEffect
+-- Import useEffect hook (useEffect(callback, array))
+NOTE: useEffect runs after our functional component mounts.
+it only runs again if the value of our array dependencies change
+-- Add FilteredPokemon as a useState and useEffect to update the state
 
-NOTE: This is one of the most important concepts to understand with React.
--- console.log() example of Lifecycle
+7. Update remaining class components to functional components
+-- Convert PokeCard to functional. (Use rafce snippet to build React Arrow Functional Component Export)
+-- pass props parameter
+NOTE: You can destructure inside of the parameter itself since the prop will always be the first
+argument.
+-- Convert SearchBox to functional
 
-3. Understanding Components
--- Create Components Folder Structure (this is where our components will live)
--- --> PokeCard Folder
--- --> SearchBox Folder
-(When using class based components, name your files in a class named convention)
-
-3. Create Search Box Component
--- quickly create class template using 'rcc' snippet
--- import SearchBox Component into App.js
--- Render SearchBox Component
-NOTE: Your initial return statement needs a parent div or fragment
-
-4. Search Box Functionality
--- Create Input tag on SearchBox
--- Create constructor, on_search_change method
--- Console log onChange event.target.value
-
-5. Component Props (Shorthand for Propertys)
--- from App.js pass this.state.pokemon as a prop to the SearchBox Component
--- inside render, log the prop on your SearchBox Component
-NOTE: props will always be objects
--- After passing prop, destructure objects (this.props, this.state, this)
-
-6. Filtering & Mapping to page
--- Use filter() to filter out the pokemon from our pokemon prop
-(similar to how we map)
--- map over filtered_pokemon and display to page
-
-7. Rendering and Re-Rendering
--- Why is our PokeCard Component Rendering/Logging Twice?
--- Think about the Component Lifecycle...
+** APP Complete in a Functional Way **
